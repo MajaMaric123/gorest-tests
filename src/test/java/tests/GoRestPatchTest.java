@@ -1,20 +1,28 @@
 package tests;
 
-public class GorestPatchTest extends TestBase {
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
+import pages.GoRestUpdatePage;
 
+import static io.restassured.RestAssured.given;
+
+public class GoRestPatchTest extends TestBase {
+
+    /**
+     * Update username, email and status
+     */
     @Test
-    public void updateServicesWithPatch() {
-        UpdatePojo updatePojo = new UpdatePojo();
-        updatePojo.setName("Asani Joi");
-        updatePojo.setEmail("asani.joi354@15ce.com");
-        updatePojo.setStatus("active");
-
+    public void updateUserDetailsTest() {
+        GoRestUpdatePage updateUser = new GoRestUpdatePage();
+        updateUser.setName("Bred Smith");
+        updateUser.setEmail("bredsmith123@gmail.com");
+        updateUser.setStatus("active");
 
         Response response = given()
                 .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer 65cbc4c43040ae97eb012d87fb6bb928809feb842bfeba5ea49b2969ea92ede6")
-                .pathParams("id",14618)
-                .body(updatePojo)
+                .header("Authorization", "Bearer 6f87bac2fb8d7207cadd23ec4032fd6ca408cec9b76204664142ba58d01798c4")
+                .pathParams("id", 7195)
+                .body(updateUser)
                 .when()
                 .patch("/{id}");
         response.prettyPrint();

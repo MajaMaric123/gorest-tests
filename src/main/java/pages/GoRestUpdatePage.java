@@ -1,6 +1,6 @@
 package pages;
 
-public class UpdatePojo {
+public class GoRestUpdatePage {
 
     private String name;
     private String email;

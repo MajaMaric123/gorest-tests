@@ -1,27 +1,34 @@
 package tests;
 
-public class GorestGetTest extends TestBase {
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.given;
+
+public class GoRestGetTest extends TestBase {
+
+    /**
+     * Get details for every user
+     */
     @Test
-    public void getAllGorestUsersInfo() {
+    public void getAllUsersInfo() {
         Response response = given()
                 .when()
-                .get("/users");
-        response.then().statusCode(200);
+                .get();
         response.prettyPrint();
+        response.then().statusCode(200);
     }
 
+    /**
+     * Get details for single user
+     */
     @Test
-    public void getSingleGorestUsersInfo() {
+    public void getSingleUsersInfo() {
         Response response = given()
-                .pathParam("id",3821)
+                .pathParam("id", 7195)
                 .when()
-                .get("/users/{id}");
-        response.then().statusCode(200);
+                .get("/{id}");
         response.prettyPrint();
+        response.then().statusCode(200);
     }
-
-
-
-
 }

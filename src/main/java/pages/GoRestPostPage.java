@@ -1,6 +1,6 @@
 package pages;
 
-public class GoRestPojo {
+public class GoRestPostPage {
     private String name;
     private String email;
     private String gender;
@@ -37,5 +37,4 @@ public class GoRestPojo {
     public void setStatus(String status) {
         this.status = status;
     }
-
 }
